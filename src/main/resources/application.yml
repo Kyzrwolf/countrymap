@@ -1,8 +1,11 @@
+server:
+  port: 7777
+
 spring:
   application:
     name: country-map
   datasource:
-    url: 'jdbc:postgresql://localhost:5432/countrymap'
+    url: jdbc:postgresql://localhost:5432/countrymap
     username: postgres
     password: secret
     hikari:
@@ -12,12 +15,15 @@ spring:
       idle-timeout: 10000
       max-lifetime: 1000
       auto-commit: true
+      schema: countrymap
+
   flyway:
     enabled: true
     baseline-on-migrate: true
     baseline-version: 0
     schemas: countrymap
     locations: classpath:db/migration
+
   jpa:
     hibernate:
       ddl-auto: none
@@ -29,9 +35,9 @@ spring:
     show-sql: false
     generate-ddl: true
     open-in-view: false
-server:
-  port: 7777
 
 logging:
   level:
-    org.flywaydb: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+    org.springframework.boot.autoconfigure.flyway: DEBUG
+    org.flywaydb: TRACE

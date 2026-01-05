@@ -34,7 +34,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql:42.7.8")
     implementation("org.flywaydb:flyway-core:11.14.1")
     implementation("org.flywaydb:flyway-database-postgresql:11.14.1")
-
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 }
 
 tasks.withType<Test> {
