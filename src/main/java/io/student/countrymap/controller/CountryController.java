@@ -20,17 +20,17 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Country> getAllCountries() {
         return countryService.getAllCountries();
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public Country addCountry(@RequestBody CountryAddRequest request) {
         return countryService.addCountry(request);
     }
 
-    @PutMapping("/edit/{iCode}")
+    @PutMapping("/{iCode}")
     @Operation(summary = "Редактировать страну по ISO-коду")
     public Country editCountryByICode(@PathVariable String iCode, @RequestBody CountryUpdateRequest request) {
         return countryService.editCountryByICode(iCode, request);
